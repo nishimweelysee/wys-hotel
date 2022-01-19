@@ -14,7 +14,6 @@ public class HotelServiceImpl implements HotelService{
 		this.hotelRepository = hotelRepository;
 	}
 
-
 	@Override
 	public void saveHotel(Hotel hotel) {
 		// TODO Auto-generated method stub
