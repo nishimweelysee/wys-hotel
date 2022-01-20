@@ -1,0 +1,39 @@
+<window id="addRoomModal" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm')@init('org.wys.hotel.model.RoomModel')"
+            validationMessages="@id('vmsgs')"
+            title="Add New Room" border="normal" width="600px"
+            position="center,center" closable="true"
+            action="show: slideDown;hide: slideUp"
+    >
+        <grid>
+            <columns>
+                <column/>
+                <column/>
+            </columns>
+            <rows>
+                <row>
+                    <label value="Room Type"/>
+                    <combobox value="@bind(vm.room.type)" class="w-full" >
+                        <comboitem  value="Single" label="Single"/>
+                        <comboitem label="Double" value="Double"/>
+                        <comboitem value="Triple" label="Triple"/>
+                        <comboitem value="Family" label="Family"/>
+                        <comboitem value="King Sized" label="King Sized"/>
+                        <comboitem value="Master Suite" label="Master Suite"/>
+                        <comboitem value="Mini-Suite" label="Mini-Suite"/>
+                        <comboitem value="Connecting Rooms" label="Connecting Rooms"/>
+                        <comboitem value="Presidential Suit" label="Presidential Suit"/>
+                        <comboitem value="Murphy Room" label="Murphy Room"/>
+                    </combobox>
+                </row>
+                <row>
+                    <label value="Price"/>
+                    <textbox value="@bind(vm.room.price)" class="w-full" />
+                </row>
+                <row>
+                    <label/>
+                    <button label="Create" onClick="@command('saveRoom')" class="bg-green-700" />
+                </row>
+            </rows>
+        </grid>
+    </window>

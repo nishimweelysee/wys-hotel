@@ -1,0 +1,4 @@
+org/wys/hotel/model/RoomModel.class
+org/wys/hotel/repository/RoomRepository.class
+org/wys/hotel/service/RoomService.class
+org/wys/hotel/service/RoomServiceImpl.class

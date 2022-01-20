@@ -1,0 +1,47 @@
+<zk>
+    <script src="https://cdn.tailwindcss.com"/>
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm')@init('org.wys.hotel.model.RoomModel')"
+            validationMessages="@id('vmsgs')">
+        <hlayout class="flex justify-between">Manage Rooms <button sclass="bg-gray-700" label="Add Room"  onClick="@command('openNewRoomModal')"/></hlayout>
+        <vlayout>
+            <hlayout>
+                <div>
+                    Show <combobox value="@bind(vm.showItems)">
+                    <comboitem label="5" value="5"/>
+                    <comboitem label="10" value="10"/>
+                    <comboitem label="25" value="25"/>
+                    <comboitem label="50" value="50"/>
+                    <comboitem label="100" value="100"/>
+                </combobox> entries
+                </div>
+                <div>
+                    <textbox value="@bind(vm.searchKey)"/>
+                </div>
+            </hlayout>
+            <listbox model="@bind(vm.rooms)" mold="paging"  pageSize="@load(vm.showItems)" id="box" width="100%" >
+                <listhead sizable="true" >
+                    <listheader label="Room No" sort="auto" />
+                    <listheader label="Room Type" sort="auto" />
+                    <listheader label="Price" sort="auto" />
+                    <listheader label="Booking Status" sort="auto" />
+                    <listheader label="Action"/>
+                </listhead>
+                <template name="model" var="room" status="s">
+                    <listitem>
+                        <listcell label="@bind(room.id)" />
+                        <listcell label="@bind(room.type)" />
+                        <listcell label="@bind(room.price)" />
+                        <listcell>
+                            <button if="${room.status=='true'}" class="bg-red-700" label="@bind(room.getStatus())"/>
+                            <button if="${room.status=='false'}" class="bg-green-700" label="@bind(room.getStatus())"/>
+                        </listcell>
+                        <listcell >
+                            <button class="bg-gray-700" label="Delete"/>
+                        </listcell>
+                    </listitem>
+                </template>
+            </listbox>
+        </vlayout>
+    </window>
+</zk>

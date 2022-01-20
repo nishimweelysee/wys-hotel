@@ -11,6 +11,7 @@ public class Room {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String type;
+	private boolean status;
 	private Double price;
 	public Integer getId() {
 		return id;
@@ -30,7 +31,16 @@ public class Room {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
-	
-	
+	public String getStatus() {
+		return status?"Booked":"Book Room";
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 }
