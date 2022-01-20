@@ -5,9 +5,12 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+	<bean id="roombean" class="org.wys.hotel.domain.Room"/>
 	<bean id="hotelbean" class="org.wys.hotel.domain.Hotel">
 		<property name="name" value="Vimal Jaiswal"/>
 	</bean>
-	<bean id="roombean" class="org.wys.hotel.domain.Room"/>
+	<bean id="hotelService" class="org.wys.hotel.service.HotelServiceImpl"></bean>
+	<bean id="reservationService" class="org.wys.hotel.service.ReservationService"/>
+	<bean id="customerService" class="org.wys.hotel.service.CustomerService"/>
 
 </beans>

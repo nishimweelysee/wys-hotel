@@ -1,0 +1,84 @@
+<zk>
+<script src="https://cdn.tailwindcss.com"></script>
+  <div class="mb-0 w-4/5 mx-auto bg-blue-100 mt-8  space-y-6">
+		<hlayout class="p-4 w-full flex items-center justify-between  border-b border-gray-300">
+		<label class="mb-8 text-xl font-light text-gray-500" value="Room information:"></label>
+		<button class="px-4 py-2 bg-gray-400 text-white hover:bg-gray-500" label="Replan Booking"/>
+		</hlayout>
+		<div class="grid p-4 grid-cols-2 gap-4">
+		<div>
+		 <label value="Room type" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <combobox value="@bind(mym.room.type)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
+		  <comboitem label="single"/>
+		  <comboitem label="Double"/>
+		  <comboitem label="Triple"/>
+		  <comboitem label="Quad"/>
+		  <comboitem label="Queen"/>
+		  <comboitem label="King"/>
+		 </combobox>
+		</div>
+		<div>
+		 <label value="Room Id" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <combobox value="@bind(mym.room.id)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
+		  <comboitem label="active"/>
+		  <comboitem label="inactive"/>
+		 </combobox>
+		</div>
+		<div class="mt-1">
+		 <label value="Check In" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <datebox  value="@bind(mym.reservation.checkIn)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"/>
+		</div>
+		<div class="mt-1">
+		 <label value="Check out" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <datebox value="@bind(mym.reservation.checkOut)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"/>
+		</div>
+       </div>
+       <div class="p-4 font-bold text-lg">
+       		<hlayout><label class="font-bold text-lg" value="Total Days:"/> <label class="font-bold text-lg" value="0 Days"/></hlayout>
+       		<hlayout><label class="font-bold text-lg" value="Price:"/> <label class="font-bold text-lg" value="0/~"/></hlayout>
+       		<hlayout><label class="font-bold text-lg" value="Total Amount:"/> <label class="font-bold text-lg"  value="0/~"/></hlayout>
+       		
+       </div>
+       </div>
+   <div class=" p-5 w-4/5 mx-auto bg-blue-100 my-8  space-y-6">
+		<hlayout class="p-4 w-full border-b border-gray-300">
+		<label class="mb-8 text-xl font-light text-gray-500" value="Customer Details:"></label>
+		</hlayout>
+		<div class="grid p-4 grid-cols-2 gap-4">
+		<div class="mt-1">
+		 <label value="Firstname" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <textbox  value="@bind(mym.customer.firstname)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"/>
+		</div>
+		<div class="mt-1">
+		 <label value="Lastname" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <textbox value="@bind(mym.customer.lastname)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"/>
+		</div>
+		<div class="mt-1">
+		 <label value="Contact number" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <textbox  value="@bind(mym.customer.phone)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"/>
+		</div>
+		<div class="mt-1">
+		 <label value="Email Address" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <textbox value="@bind(mym.customer.email)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"/>
+		</div>
+		<div>
+		 <label value="ID Card Type" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <combobox value="@bind(mym.customer.idType)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
+		  <comboitem label="active"/>
+		  <comboitem label="inactive"/>
+		 </combobox>
+		</div>
+		<div class="mt-1">
+		 <label value="Selected Id Card Number" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <textbox value="@bind(mym.customer.idNo)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"/>
+		</div>
+		<div class="mt-1 col-span-2">
+		 <label value="Residential Address" class="block text-sm font-bold mb-1 text-gray-700"/>
+		 <textbox  value="@bind(mym.customer.address)" class="w-full border border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"/>
+		</div>
+       </div>
+        <button id="saveBtn"  class="my-8 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" label="Register User" onClick="@command('save')" />
+       </div>
+       <div  class="mt-4">
+       </div>
+</zk>
