@@ -52,6 +52,18 @@ public class Reservation {
 	public void setCheckOut(LocalDateTime checkOut) {
 		this.checkOut = checkOut;
 	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	public Room getRoom() {
+		return room;
+	}
+	public void setRoom(Room room) {
+		this.room = room;
+	}
 	
 	
 	

@@ -1,0 +1,70 @@
+<zk>
+<script src="https://cdn.tailwindcss.com"></script>
+   <window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('mvm')@init('org.wys.hotel.model.ReservationModel')"
+		validationMessages="@id('vmsgs')">
+		<div class="mt-12">
+			<div
+				class="bg-blue-500 text-white p-4 w-full items-center flex justify-between">
+				<label class="text-2xl font-bold font-sans" value="Reservation" />
+				<div>
+					<button
+						class="bg-white text-gray-700 p-2 hover:bg-gray-100 hover:text-gray-700"
+						label="export to Excel" iconSclass="z-icon-file"></button>
+					<button class="ml-2 bg-white text-gray-700 p-2 hover:bg-gray-100 hover:text-gray-700" iconSclass="z-icon-plus-circle" onClick="@command('openModal')" label="Add Reservation" />
+				</div>
+			</div>
+		</div>
+		<grid id="demoGrid"
+		style="margin-top:0;"
+		emptyMessage="no data found"
+			model="@load(mvm.reservations) @template('noneditable')" mold="paging"
+			pageSize="10">
+			<columns class="bg-white text-gray-900" style="color:red;" sizable="true">
+				<column align="center" sclass="thead" label="#" width="3%" />
+
+				<column  label="customer" />
+				<column label="room"/>
+				<column  label="check in" />
+				<column   label="check out" />
+
+				<column  width="10%">
+					<span>
+						<label  value="Action">
+						</label>
+					</span>
+				</column>
+			</columns>
+			<template name="noneditable">
+				<row>
+					<label value="${forEachStatus.index + 1}" />
+					<label value="@load(each.customer)" />
+					<label value="@load(each.room)" />
+					<label value="@load(each.check_in)" />
+					<label value="@load(each.check_out)" />
+					<hlayout class=" flex items-center justify-around">
+					<div if="${each.status == 'inactive'}" class="w-2 h-2 bg-red-400 rounded-full"></div>
+					<div if="${each.status == 'active'}" class="w-2 h-2 bg-green-400 rounded-full"></div>
+					<label  value="@load(each.status)"/></hlayout>
+
+					<div>
+						<hlayout class="flex items-center justify-evenly">
+						
+						<a tooltiptext="Update" class="text-xl hover:text-blue-800"
+						    iconSclass="z-icon-pencil"
+							href="javascript:;" onClick="@command('onUpdate',student=each)">
+						</a>
+						
+						<a tooltiptext="Delete" class="text-xl text-red-500 hover:text-red-700"
+						    iconSclass="z-icon-trash"
+							onClick="@command('deleteUser', usr=each )">
+						</a>
+						</hlayout>
+
+					</div>
+
+				</row>
+			</template>
+		</grid>
+	</window>
+</zk>
